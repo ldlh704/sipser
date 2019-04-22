@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+
+\usepackage{geometry}
+\geometry{a4paper}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{enumerate}[3.1]
+  \item
+  \begin{enumerate}
+    \item 0.
+    \begin{flalign*}
+      & q_1 \, 0 \, \sqcup & \\
+      & \sqcup \, q_2 \, \sqcup & \\
+      & \sqcup \, \sqcup \, q_{accept} &
+    \end{flalign*}
+  \item 00.
+    \begin{flalign*}
+      & q_1 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, q_2 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, q_3 \, \sqcup & \\
+      & \sqcup \, q_5 \, x \, \sqcup & \\
+      & q_5 \, \sqcup \, x \, \sqcup & \\
+      & \sqcup \, q_2 \,x \, \sqcup & \\
+      & \sqcup \,x \, q_2 \, \sqcup & \\
+      & \sqcup \,x \, \sqcup \,q_{accept} &
+    \end{flalign*}
+  \item 000.
+    \begin{flalign*}
+      & q_1 \, 0 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, q_2 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, q_3 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, q_4 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, \sqcup \, q_{reject}  &
+    \end{flalign*}
+  \item 000000.
+    \begin{flalign*}
+      & q_1 \, 0 \, 0 \, 0 \, 0 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, q_2 \, 0 \, 0 \, 0 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, q_4 \, 0 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, x \, q_3 \, 0 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, x \, 0  \, q_4 \, 0 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, x \, 0  \, x \, q_3 \, \sqcup & \\
+      & \sqcup \, x \, 0 \, x \, 0  \, q_5 \, x \, \sqcup & \\
+      & \sqcup \, x \, 0 \, x \, q_5  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, x \, 0 \, q_5 \, x  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, x \, q_5 \, 0 \, x  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, q_5 \, x \, 0 \, x  \, 0 \, x \, \sqcup & \\
+      & q_2 \, \sqcup \, x \, 0 \, x  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, q_2 \, x \, 0 \, x  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, x \, q_2  \, 0 \, x  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, x \, x  \, q_3 \, x  \, 0 \, x \, \sqcup & \\
+      & \sqcup \, x \, x  \, x \, 0  \, q_4 \, x \, \sqcup & \\
+      & \sqcup \, x \, x  \, x \, 0  \, x \, q_4 \, \sqcup & \\
+      & \sqcup \, x \, x  \, x \, 0  \, x \, \sqcup \, q_{reject} & \\
+    \end{flalign*}
+  \end{enumerate}
+ \end{enumerate}
+
+\end{document}
