@@ -1,0 +1,8 @@
+# latex
+
+*.aux
+*.log
+
+# emacs
+
+*.~
