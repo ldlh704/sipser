@@ -8,6 +8,8 @@
 \usepackage{geometry}
 \geometry{a4paper}
 
+\usepackage{tikz}
+
 \begin{document}
 
 \begin{enumerate}[0.1]
@@ -86,7 +88,7 @@
   \end{tikzpicture}
   \item $G = (\{1,2,3,4,5,6\}, \{(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)\})$
   \item Take a graph $G = (V,E)$, where $|V| \geq 2$. To prove the statement true, we need to show it is not possible to construct $G$ without two vertices having the same degree. \par As each edge connects a pair of vertices, the set of all possible degrees for a given vertex $v \in G$ is  $D = \{0, 1, \dots, (|V|-1)\}$. For the statement to be true, no two vertices may have the same degree, implying a bijection between $D$ and $V$. Thus, $V$ must include vertices $v, u$ where $D(v) = (|V|-1)$, $D(u) = 0$. This is a contradiction, which completes the proof. 
-  \item The proof only establishes that horses in $H_1$ and $H_2$ have the same colour when $|$H_1$| = |$H_2| = 1$. It does not establish that horses in $H_1 \cup H_2$ are the same colour.
+  \item The proof only establishes that horses in $H_1$ and $H_2$ have the same colour when $|H_1| = |H_2| = 1$. It does not establish that horses in $H_1 \cup H_2$ are the same colour.
   \item 
   \begin{enumerate}
     \item Prove $S(n) = 1 + 2 + \hdots + n = \frac{1}{2}n(n+1)$.
