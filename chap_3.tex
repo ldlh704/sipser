@@ -127,7 +127,12 @@
       & x \, x \, \# \, x \, x \, q_8 \, \sqcup & \\
       & x \, x \, \# \, x \, x \, \sqcup \, q_{accept} & \\
     \end{flalign*}
- \end{enumerate}
-\end{enumerate}
-
+  \end{enumerate}
+  \item Solution in book.
+  \item An enumerator $E$ can be defined as a 2-tape Turing machine with the transition function:
+  \begin{equation*}
+    \delta: Q \times \Gamma_{tape} \longrightarrow  Q \times \Gamma_{tape} \times \Gamma_{print} \times \{L, R, S\} \times \{R, S\}
+  \end{equation*} 
+  The language enumerated by the enumerator is $L \subseteq \Gamma_{p}*$.
+\end{enumerate}   
 \end{document}
