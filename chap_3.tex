@@ -137,5 +137,22 @@
   \item Solution in book.
   \item For any given $S_i$, there is no guarantee $M$ will not loop (i.e. not accept or reject the input), meaning there is no guarantee the algorithm will complete.
   \item The machine will not \textit{accept} or \textit{reject} on any input, i.e. will loop on all inputs.
+  \item 
+  \begin{enumerate}
+    \item Solution in book.
+    \item On input string $w$:
+      \begin{enumerate}[1.]
+        \item Scan the tape and mark the first two 0s that have not been marked. If no unmarked 0 is found, go to stage 4. Otherwise, move the head back to the front of the tape.
+         \item Scan the tape and mark the first 1 that has not been marked. If no unmarked 1 is found, \textit{reject}.
+         \item Move the head back to the front of the tape and go to stage 1.
+         \item Move the head back to the front of the tape. Scan the tape to see if any unmarked 1s remain. If non are found, \textit{accept}, otherwise, \textit{reject}.
+       \end{enumerate}
+   \item On input string $w$:
+     \begin{enumerate}[1.]
+        \item Run the previously specified TM on input string $w$. 
+        \item If the machine accepts, then \textit{reject}, otherwise \textit{accept}.
+     \end{enumerate}
+  \end{enumerate}
 \end{enumerate}   
+
 \end{document}
