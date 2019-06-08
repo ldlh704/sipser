@@ -15,5 +15,13 @@
 \begin{enumerate}[8.1]
   \item Any language in $SPACE(f(n))$ as defined using the two-tape read-only model can be simulated with a single tape model using at most $O(n)$ space. Similarly, any language in $SPACE(f(n))$ as defined using a single tape model can be simulated with a two-tape read-only model with an improvement of a most $O(n)$ space. Thus, the complexity classes are equivalent where $f(n) \geq n$. 
   \item The winning strategy for $X$ is to move to the top-right position. $O$ can then move to block only either the top-centre or centre-right position. If $O$ moves to the top-centre, $X$ moves to the centre-right. If $O$ move to the centre-right, $X$ moves to the top-centre.
+  \item Player I has a winning strategy as follows:
+  \begin{itemize}
+    \item Player I begins at node 1.
+    \item Player 2 chooses node 2.
+    \item Player I chooses node 4. Node 3 has only one outgoing edge which connects to node 6. As node 6 has no outgoing edges, this path would guarantee a win for Player II. 
+    \item Player II chooses node 5.
+    \item Player I chooses node 6. As no unchosen nodes remain, Player I wins.
+  \end{itemize}
 \end{enumerate}   
 \end{document}
