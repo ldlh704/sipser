@@ -55,6 +55,15 @@
       =\hspace{0.25em} & 37.
     \end{align*}
   \end{enumerate}
+  \item
+  \item Let $\phi = (x \lor y) \land (x \lor \bar{y}) \land (\bar{x} \lor y) \land (\bar{x} \lor \bar{y})$. The following truth-table shows that $\phi$ is not satisfiable. \\\\
+    \begin{tabular}{|c|c|c|c|c|c|c|} \hline
+      x & y & $(x \lor y)$ & $(x \lor \bar{y})$ & $(\bar{x} \lor y)$ & $(\bar{x} \lor \bar{y})$ & $\phi$ \\ \hline
+      0 & 0 & 0            & 1                  & 1                  & 1                        & 0      \\ \hline
+      0 & 1 & 1            & 0                  & 1                  & 1                        & 0      \\ \hline
+      1 & 0 & 1            & 1                  & 0                  & 1                        & 0      \\ \hline
+      1 & 1 & 1            & 1                  & 1                  & 0                        & 0      \\ \hline
+    \end{tabular} \\
 \end{enumerate}
 
 \end{document}
