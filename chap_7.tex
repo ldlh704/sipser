@@ -8,7 +8,7 @@
 \usepackage{geometry}
 \geometry{a4paper}
 
-\usepackage{tikz}
+\renewcommand{\indent}{\hspace{1em}}
 
 \begin{document}
 
@@ -64,6 +64,24 @@
       1 & 0 & 1            & 1                  & 0                  & 1                        & 0      \\ \hline
       1 & 1 & 1            & 1                  & 1                  & 0                        & 0      \\ \hline
     \end{tabular} \\
+  \item Let $\langle L_i$, $M_i \rangle$ be a polytime language and decider, such that $L_i = \{ w \mid M_i\langle w \rangle \text{ accepts} \}$, and $M_i$ always halts in polynomial time. \\\\
+    Let $L_\cup = L_i \cup L_j$, $L_\circ = L_i \circ L_j$, $\bar{L_i} = \{ w \in \Sigma^* \mid w \notin L_i \}$ be languages. To show that $L_\cup, L_\circ, \bar{L_i} \in$ P, we construct respective polynomial time deciders $M_\cup, M_\circ, \bar{M_i}$. \\\\
+    $M_\cup$ = ``On input $w$:
+    \begin{enumerate}[\indent1.]
+      \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $accept$.
+      \item Run $M_j\langle w \rangle$. If $M_j$ accepts, $accept$.
+      \item If neither $M_i\langle w \rangle$ nor $M_j\langle w \rangle$ accepted, $reject$.''
+    \end{enumerate}
+    $M_\circ$ = ``On input $w$:
+    \begin{enumerate}[\indent1.]
+      \item For each position $k = 0$ to $|w|$, divide $w$ into substrings $w = w_1w_2$, where $w_1$ is the first $k$ symbols in $w$.
+      \item \indent Run $M_i\langle w_1 \rangle$ and $M_j\langle w_2 \rangle$. If both accept, $accept$.
+      \item If no $k$ exists such that $M_i\langle w_1 \rangle$ and $M_j\langle w_2 \rangle$ both $accept$, $reject$.''
+    \end{enumerate}
+    $\bar{M_i}$ = ``On input $w$:
+    \begin{enumerate}[\indent1.]
+      \item Run $M_i$ on $w$. If $M_i$ accepts $reject$. If $M_i$ rejects, $accept$.
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
