@@ -82,6 +82,19 @@
     \begin{enumerate}[\indent1.]
       \item Run $M_i$ on $w$. If $M_i$ accepts $reject$. If $M_i$ rejects, $accept$.
     \end{enumerate}
+  \item Let $\langle L_i, N_i \rangle$ be a language and non-deterministic Turing machine, such that $N_i$ decides $L_i$ in polynomial time. \\\\
+    Let $L_\cup = L_i \cup L_j$, $L_\circ = L_i \circ L_j$ be languages. To show that $L_\cup, L_\circ \in$ P, we construct respective polynomial time non-deterministic deciders. \\\\
+    $N_\cup$ = ``On input $w$:
+    \begin{enumerate}[\indent1.]
+      \item Non-deterministically branch to simulate both $N_i\langle w \rangle$ and $N_j\langle w \rangle$.
+      \item If either branch accepts, $accept$, else $reject$.''
+    \end{enumerate}
+    $N_\circ$ = ``On input $w$:
+    \begin{enumerate}[\indent1.]
+      \item Non-determinsitically branch for each position $k = 0$ to $|w|$, with each branch dividing $w$ into substrings $w = w_1w_2$, where $w_1$ is the first $k$ symbols in $w$.
+      \item \indent For each branch, run $N_i\langle w_1 \rangle$ and $N_j\langle w_2 \rangle$. If both accept, $accept$.
+      \item If no branch accepts, $reject$.''
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
