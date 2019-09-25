@@ -60,7 +60,7 @@
     \item $isAdjacent$
   \end{enumerate}
   \item $deg(1)=3$, $deg(2)=3$, $deg(3)=2$, $deg(4)=2$
-  \item 
+  \item
   \def \vertex [#1]#2 {\draw[fill=#1] #2 circle (6pt);}
   \def \label [#1]#2 {\node at #1 {#2};}
   \def \edge #1#2 {\draw #1 -- #2;}
@@ -84,12 +84,12 @@
     \edge{(0,0)}{(4,-4)}
     % path
      \pathEdge{(0,-4)}{(4,0)}
-     \pathEdge{(4,0)}{(4,-4)} 
+     \pathEdge{(4,0)}{(4,-4)}
   \end{tikzpicture}
   \item $G = (\{1,2,3,4,5,6\}, \{(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)\})$
-  \item Take a graph $G = (V,E)$, where $|V| \geq 2$. To prove the statement true, we need to show it is not possible to construct $G$ without two vertices having the same degree. \par As each edge connects a pair of vertices, the set of all possible degrees for a given vertex $v \in G$ is  $D = \{0, 1, \dots, (|V|-1)\}$. For the statement to be true, no two vertices may have the same degree, implying a bijection between $D$ and $V$. Thus, $V$ must include vertices $v, u$ where $D(v) = (|V|-1)$, $D(u) = 0$. This is a contradiction, which completes the proof. 
+  \item Take a graph $G = (V,E)$, where $|V| \geq 2$. To prove the statement true, we need to show it is not possible to construct $G$ without two vertices having the same degree. \par As each edge connects a pair of vertices, the set of all possible degrees for a given vertex $v \in G$ is  $D = \{0, 1, \dots, (|V|-1)\}$. For the statement to be true, no two vertices may have the same degree, implying a bijection between $D$ and $V$. Thus, $V$ must include vertices $v, u$ where $D(v) = (|V|-1)$, $D(u) = 0$. This is a contradiction, which completes the proof.
   \item The proof only establishes that horses in $H_1$ and $H_2$ have the same colour when $|H_1| = |H_2| = 1$. It does not establish that horses in $H_1 \cup H_2$ are the same colour.
-  \item 
+  \item
   \begin{enumerate}
     \item Prove $S(n) = 1 + 2 + \hdots + n = \frac{1}{2}n(n+1)$.
     \begin{itemize}
@@ -103,7 +103,7 @@
                 &= \frac{1}{2}(n-1)(n - 1 + 1) + n \\
                 &= \frac{1}{2}(n^2 + n) \\
                 & = \frac{1}{2}n(n+1) &&
-      \end{flalign*} 
+      \end{flalign*}
     \end{itemize}
     \item Prove $C(n) = 1^3 + 2^3 + \hdots + n^3 = \frac{1}{4}n^2(n + 1)^2$.
     \begin{itemize}
@@ -118,12 +118,12 @@
                 &= \frac{1}{4}(n^4-2n^3+n^2) + n^3 \\
                 &= \frac{1}{4}(n^4+2n^3+n^2) \\
                 &= \frac{1}{4}n^2(n + 1)^2 &&
-      \end{flalign*}       
+      \end{flalign*}
     \end{itemize}
   \end{enumerate}
   \item Division by $a-b = 0$.
-  \item Solution in book.
-  \item Solution in book.
+  \item We let $P_t = 0$ and solve for $Y$ to get the formula: $Y = PM^t(M-1)/(M^t - 1)$. For $P = 10^5$, $I = 5 \cdot 10^{-2}$ and $t = 3.6 \cdot 10^2$, we have $M = (1.05 / 1.2) \cdot 10^{-1}$. We use a calculator to find that $Y \approx \$536.82$ is the monthly payment.
+  \item Make space for two piles of nodes: A and B. Then, starting with the entire graph, repeatedly add each remaining node $x$ to $A$ if its degree is greater than one half the number of remaining nodes and to $B$ otherwise, and discard all nodes to which $x$ isn't (is) connected if it was added to $A$ ($B$). Continue until no nodes are left. At most half of the nodes are discarded at each of these steps, so at least $\log{2}n$ steps will occur before the process terminates. Each step adds a node to one of the piles, so one of the piles ends up with at least $\frac{1}{2} \log{2}n$ nodes. The $A$ pile contains the nodes of a clique and the $B$ pile contains the nodes of an anti-clique.
 \end{enumerate}
 
 \end{document}
