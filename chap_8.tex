@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 
 \usepackage{enumerate}
+\usepackage{enumitem}
 
 \usepackage{geometry}
 \geometry{a4paper}
@@ -13,15 +14,38 @@
 \begin{document}
 
 \begin{enumerate}[8.1]
-  \item Any language in $SPACE(f(n))$ as defined using the two-tape read-only model can be simulated with a single tape model using at most $O(n)$ space. Similarly, any language in $SPACE(f(n))$ as defined using a single tape model can be simulated with a two-tape read-only model with an improvement of a most $O(n)$ space. Thus, the complexity classes are equivalent where $f(n) \geq n$. 
+  \item Any language in $SPACE(f(n))$ as defined using the two-tape read-only model can be simulated with a single tape model using at most $O(n)$ space. Similarly, any language in $SPACE(f(n))$ as defined using a single tape model can be simulated with a two-tape read-only model with an improvement of a most $O(n)$ space. Thus, the complexity classes are equivalent where $f(n) \geq n$.
   \item The winning strategy for $X$ is to move to the top-right position. $O$ can then move to block only either the top-centre or centre-right position. If $O$ moves to the top-centre, $X$ moves to the centre-right. If $O$ move to the centre-right, $X$ moves to the top-centre.
   \item Player I has a winning strategy as follows:
   \begin{itemize}
     \item Player I begins at node 1.
     \item Player 2 chooses node 2.
-    \item Player I chooses node 4. Node 3 has only one outgoing edge which connects to node 6. As node 6 has no outgoing edges, this path would guarantee a win for Player II. 
+    \item Player I chooses node 4. Node 3 has only one outgoing edge which connects to node 6. As node 6 has no outgoing edges, this path would guarantee a win for Player II.
     \item Player II chooses node 5.
     \item Player I chooses node 6. As no unchosen nodes remain, Player I wins.
   \end{itemize}
-\end{enumerate}   
+  \item Let $L_i$ be a language decided by PSPACE turing machine $M_i$. We define languages $L_\cup &= L_i \cup L_j$, $\bar{L_i} &= \{ w \mid w \notin L_i \}$, $L_i^* &= \{ x_1x_2 \hdots x_k$ \mid k \geq 0 \text{ and each } x_i \in L_i \}$.\\\\
+    We define $M_\cup$, $\bar{M_i}$ and $M_i^*$ as follows: \\\\
+    $M_\cup$ = ``On input $w$
+    \begin{enumerate}[label=\arabic*.]
+      \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $accept$.
+      \item Run $M_j\langle w \rangle$. If $M_j$ accepts, $accept$.
+      \item If neither $M_i\langle w \rangle$, $M_j\langle w \rangle$ accepted, $reject$.''  \\
+    \end{enumerate}
+    $\bar{M_i}$ = ``On input $w$
+    \begin{enumerate}[label=\arabic*.]
+      \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $reject$, else $accept$.'' \\
+    \end{enumerate}
+    $M_i^*$ = ``On input $w$
+    \begin{enumerate}[label=\arabic*.]
+      \item If $w = \epsilon$, $accept$.
+      \item For each $m$, where $1 \leq m \leq n$, $n = |w|$.
+      \begin{enumerate}[label=\arabic*.]
+        \item[3.] Split $w$ into $m$ pieces, such that $w = w_1w_2 \hdots w_k$.
+        \item[4.] For all $i$, $1 \leq i \leq m$, run $M_i\langle w_i \rangle$. If $M_i$ rejects, go to step 2.
+        \item[5.] $M_i$ has accepted for all $i$, $accept$.
+      \end{enumerate}
+      \item[6.] $M_i$ has rejected for all $m$, $reject$.'' \\
+    \end{enumerate}
+\end{enumerate}
 \end{document}
