@@ -23,5 +23,15 @@
     \item No. $L(M)$ is not empty.
     \item Yes. By definition, $L(M) = L(M)$.
   \end{enumerate}
+  \item We define the language $EQ_{DR}$ as
+    \begin{align*}
+      EQ_{DR} = \{ \langle A, R \rangle \mid A \text{ is a DFA}, R \text{ is a regular expression, and } L(A) = L(R) \}
+    \end{align*}
+    To show $EQ_{DR}$ is decidable, we construct Turing machine $M$ which decides $EQ_{DR}$. \\\\
+    $M =$ ``On input $\langle A, R \rangle$
+    \begin{enumerate}[label=\arabic*.]
+      \item Construct DFA $B$ which recognises $R$ (see theorem 1.39).
+      \item Run $EQ_{DFA}\langle A, B \rangle$ (see theorem 4.5). If $EQ_{DFA}\langle A, B \rangle$ accepts, $accept$, else $reject$.''
+    \end{enumerate}
 \end{enumerate}
 \end{document}
