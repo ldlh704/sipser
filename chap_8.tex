@@ -47,6 +47,7 @@
       \end{enumerate}
       \item[6.] $M_i$ has rejected for all $m$, $reject$.'' \\
     \end{enumerate}
-    \item Construct a TM $M$ to decide $A_\text{DFA}$ When $M$ receives input $\langle A, w \rangle$, a DFA and a string, $M$ simulates $A$ on $w$ by keeping track of $A$'s current state and its current head locations, and updating them appropriately. The space required to carry out this simulation is $O(\log{n})$ because $M$ can record each of these values by storing a pointer into its input.
+  \item Construct a TM $M$ to decide $A_\text{DFA}$ When $M$ receives input $\langle A, w \rangle$, a DFA and a string, $M$ simulates $A$ on $w$ by keeping track of $A$'s current state and its current head locations, and updating them appropriately. The space required to carry out this simulation is $O(\log{n})$ because $M$ can record each of these values by storing a pointer into its input.
+  \item Construct a language $L$, such that $L$ is PSPACE-hard. As $L$ is PSPACE-hard, $\text{TQBF} \leq_p L$. We know $\text{SAT} \leq_p TQBF$, which gives us $\text{SAT} \leq_p L$. As SAT is NP-complete, $L$ is NP-hard, and the proof is complete.
 \end{enumerate}
 \end{document}
