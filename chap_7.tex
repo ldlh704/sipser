@@ -95,6 +95,13 @@
       \item \indent For each branch, run $N_i\langle w_1 \rangle$ and $N_j\langle w_2 \rangle$. If both accept, $accept$.
       \item If no branch accepts, $reject$.''
     \end{enumerate}
+  \item To show that $\text{CONNECTED} \in P$, we need to show that $\text{CONNECTED} \in \text{TIME}(n^k)$, where $k$ is some constant. As $M$ decides CONNECTED, we only need to prove that $M$ runs in $O(n^k)$.
+    \begin{itemize}
+      \item In step 1, a node is selected and marked. This is done in constant time.
+      \item In stages 2 and 3, each node in $G$ is scanned and marked if it is a neighbour of a marked node. This is repeated until no new nodes are marked. Assuming we do not visit already marked nodes, this has a worst-case run-time of $n \sum_{i=1}^{n-1} i = \frac{n^2(n - 1)}{2}$ steps.
+      \item In stage 4, each node of $G$ is scanned to determine if it is marked. This takes $n$ steps.
+    \end{itemize}
+    Combining steps 2,3 and 4, we have a run time of $\frac{n^2(n-1)}{2} + n = \frac{n^3 + n^2 + 2n}{2} = O(n^3)$. This is clearly in P, and the proof is complete.
 \end{enumerate}
 
 \end{document}
