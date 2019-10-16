@@ -14,40 +14,51 @@
 \begin{document}
 
 \begin{enumerate}[8.1]
-  \item Any language in $SPACE(f(n))$ as defined using the two-tape read-only model can be simulated with a single tape model using at most $O(n)$ space. Similarly, any language in $SPACE(f(n))$ as defined using a single tape model can be simulated with a two-tape read-only model with an improvement of a most $O(n)$ space. Thus, the complexity classes are equivalent where $f(n) \geq n$.
-  \item The winning strategy for $X$ is to move to the top-right position. $O$ can then move to block only either the top-centre or centre-right position. If $O$ moves to the top-centre, $X$ moves to the centre-right. If $O$ move to the centre-right, $X$ moves to the top-centre.
-  \item Player I has a winning strategy as follows:
+\item Any language in $SPACE(f(n))$ as defined using the two-tape read-only model can be simulated with a single tape model using at most $O(n)$ space. Similarly, any language in $SPACE(f(n))$ as defined using a single tape model can be simulated with a two-tape read-only model with an improvement of a most $O(n)$ space. Thus, the complexity classes are equivalent where $f(n) \geq n$.
+\item The winning strategy for $X$ is to move to the top-right position. $O$ can then move to block only either the top-centre or centre-right position. If $O$ moves to the top-centre, $X$ moves to the centre-right. If $O$ move to the centre-right, $X$ moves to the top-centre.
+\item Player I has a winning strategy as follows:
   \begin{itemize}
-    \item Player I begins at node 1.
-    \item Player 2 chooses node 2.
-    \item Player I chooses node 4. Node 3 has only one outgoing edge which connects to node 6. As node 6 has no outgoing edges, this path would guarantee a win for Player II.
-    \item Player II chooses node 5.
-    \item Player I chooses node 6. As no unchosen nodes remain, Player I wins.
+  \item Player I begins at node 1.
+  \item Player 2 chooses node 2.
+  \item Player I chooses node 4. Node 3 has only one outgoing edge which connects to node 6. As node 6 has no outgoing edges, this path would guarantee a win for Player II.
+  \item Player II chooses node 5.
+  \item Player I chooses node 6. As no unchosen nodes remain, Player I wins.
   \end{itemize}
-  \item Let $L_i$ be a language decided by PSPACE turing machine $M_i$. We define languages $L_\cup &= L_i \cup L_j$, $\bar{L_i} &= \{ w \mid w \notin L_i \}$, $L_i^* &= \{ x_1x_2 \hdots x_k$ \mid k \geq 0 \text{ and each } x_i \in L_i \}$.\\\\
-    We define $M_\cup$, $\bar{M_i}$ and $M_i^*$ as follows: \\\\
-    $M_\cup$ = ``On input $w$
+\item Let $L_i$ be a language decided by PSPACE turing machine $M_i$. We define languages $L_\cup &= L_i \cup L_j$, $\bar{L_i} &= \{ w \mid w \notin L_i \}$, $L_i^* &= \{ x_1x_2 \hdots x_k$ \mid k \geq 0 \text{ and each } x_i \in L_i \}$.\\\\
+  We define $M_\cup$, $\bar{M_i}$ and $M_i^*$ as follows: \\\\
+  $M_\cup$ = ``On input $w$
+  \begin{enumerate}[label=\arabic*.]
+  \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $accept$.
+  \item Run $M_j\langle w \rangle$. If $M_j$ accepts, $accept$.
+  \item If neither $M_i\langle w \rangle$, $M_j\langle w \rangle$ accepted, $reject$.''  \\
+  \end{enumerate}
+  $\bar{M_i}$ = ``On input $w$
+  \begin{enumerate}[label=\arabic*.]
+  \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $reject$, else $accept$.'' \\
+  \end{enumerate}
+  $M_i^*$ = ``On input $w$
+  \begin{enumerate}[label=\arabic*.]
+  \item If $w = \epsilon$, $accept$.
+  \item For each $m$, where $1 \leq m \leq n$, $n = |w|$.
     \begin{enumerate}[label=\arabic*.]
-      \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $accept$.
-      \item Run $M_j\langle w \rangle$. If $M_j$ accepts, $accept$.
-      \item If neither $M_i\langle w \rangle$, $M_j\langle w \rangle$ accepted, $reject$.''  \\
+    \item[3.] Split $w$ into $m$ pieces, such that $w = w_1w_2 \hdots w_k$.
+    \item[4.] For all $i$, $1 \leq i \leq m$, run $M_i\langle w_i \rangle$. If $M_i$ rejects, go to step 2.
+    \item[5.] $M_i$ has accepted for all $i$, $accept$.
     \end{enumerate}
-    $\bar{M_i}$ = ``On input $w$
-    \begin{enumerate}[label=\arabic*.]
-      \item Run $M_i\langle w \rangle$. If $M_i$ accepts, $reject$, else $accept$.'' \\
-    \end{enumerate}
-    $M_i^*$ = ``On input $w$
-    \begin{enumerate}[label=\arabic*.]
-      \item If $w = \epsilon$, $accept$.
-      \item For each $m$, where $1 \leq m \leq n$, $n = |w|$.
-      \begin{enumerate}[label=\arabic*.]
-        \item[3.] Split $w$ into $m$ pieces, such that $w = w_1w_2 \hdots w_k$.
-        \item[4.] For all $i$, $1 \leq i \leq m$, run $M_i\langle w_i \rangle$. If $M_i$ rejects, go to step 2.
-        \item[5.] $M_i$ has accepted for all $i$, $accept$.
-      \end{enumerate}
-      \item[6.] $M_i$ has rejected for all $m$, $reject$.'' \\
-    \end{enumerate}
-  \item Construct a TM $M$ to decide $A_\text{DFA}$ When $M$ receives input $\langle A, w \rangle$, a DFA and a string, $M$ simulates $A$ on $w$ by keeping track of $A$'s current state and its current head locations, and updating them appropriately. The space required to carry out this simulation is $O(\log{n})$ because $M$ can record each of these values by storing a pointer into its input.
-  \item Construct a language $L$, such that $L$ is PSPACE-hard. As $L$ is PSPACE-hard, $\text{TQBF} \leq_p L$. We know $\text{SAT} \leq_p TQBF$, which gives us $\text{SAT} \leq_p L$. As SAT is NP-complete, $L$ is NP-hard, and the proof is complete.
+  \item[6.] $M_i$ has rejected for all $m$, $reject$.'' \\
+  \end{enumerate}
+\item Construct a TM $M$ to decide $A_\text{DFA}$ When $M$ receives input $\langle A, w \rangle$, a DFA and a string, $M$ simulates $A$ on $w$ by keeping track of $A$'s current state and its current head locations, and updating them appropriately. The space required to carry out this simulation is $O(\log{n})$ because $M$ can record each of these values by storing a pointer into its input.
+\item Construct a language $L$, such that $L$ is PSPACE-hard. As $L$ is PSPACE-hard, $\text{TQBF} \leq_p L$. We know $\text{SAT} \leq_p TQBF$, which gives us $\text{SAT} \leq_p L$. As SAT is NP-complete, $L$ is NP-hard, and the proof is complete.
+\item Let $A_1$ and $A_2$ be languages that are decided by NL-machines $N_1$ and $N_2$. Construct three Turing machines: $N_\cup$ deciding $A_1 \cup A_2$; $N_\circ$ deciding $A_1 \circ A_2$; and $N_*$ deciding $A_1^*$. Each of these machines operates as follows. \\\\
+  Machine $N_\cup$ nondeterministically branches to simulate $N_1$ or to simulate $N_2$. In either case, $N_\cup$ accepts if the simulated machine accepts. \\\\
+  Machine $N_\circ$ nondeterministically selects a position on the input to divide it into two substrings. Only a pointer to that position is stored on the work tape - insufficient space is available to store the substrings themselves. Then $N_\circ$ simulates $N_1$ on the first substring, branching nondeterministically to simulate $N_1$'s nondeterminism. On any branch that reaches $N_1$'s accept state, $N_\circ$ simulates $N_2$ on the second substring. On any branch that reaches $N_2$'s accept state, $N_\circ$ accepts. \\\\
+  Machine $N_*$ has a more complex algorithm, so we describe its stages. \\\\
+  $N_*$ = ``On input $w$:
+  \begin{enumerate}[label=\arabic*.]
+    \item Initialise two input position pointers $p_1$ and $p_2$ to 0, the position immediately preceding the first input symbol.
+    \item $Accept$ if no input symbols occur after $p_2$.
+    \item Move $p_2$ forward to a nondeterministically selected position.
+    \item Simulate $N_1$ on the substring of $w$ from the position following $p_1$ to the position at $p_2$, branching nondeterministically to simulate $N_1$'s nondeterminism.
+    \item If this branch of the simulation reaches $N_1$'s accept state, copy $p_2$ to $p_1$ and go to stage 2. If $N_1$ rejects on this branch, $reject$.''
 \end{enumerate}
 \end{document}
