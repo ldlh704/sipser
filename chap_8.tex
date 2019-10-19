@@ -60,5 +60,24 @@
     \item Move $p_2$ forward to a nondeterministically selected position.
     \item Simulate $N_1$ on the substring of $w$ from the position following $p_1$ to the position at $p_2$, branching nondeterministically to simulate $N_1$'s nondeterminism.
     \item If this branch of the simulation reaches $N_1$'s accept state, copy $p_2$ to $p_1$ and go to stage 2. If $N_1$ rejects on this branch, $reject$.''
-\end{enumerate}
+  \end{enumerate}
+\item We let $s_1,s_2,\hdots,s_k$ be the starting position, and $s_1',s_2',\hdots,s_k'$ the position after the move is made. We define $\text{NIM}_s$ to be the result of performing an XOR operation on each column in $s_1,s_2,\hdots,s_k$, such that $\text{NIM}_s = s_1 \oplus s_2 \oplus \hdots \oplus s_k$. We note that $s_1,s_2,\hdots,s_k$ is balanced if and only if $\text{NIM}_k = 0$. \\\\
+  Let $s_l$ denote the pile from which sticks are removed, such that $s_i = s_i'$ for all $i \neq l$ and $s_l > s_l'$. We then have
+  \begin{align*}
+    \text{NIM}_s' &= 0 \oplus \text{NIM}_s' \\
+                  &= \text{NIM}_s \oplus \text{NIM}_s \oplus \text{NIM}_s' \\
+                  &= \text{NIM}_s \oplus (s_1 \oplus s_2 \oplus \hdots \oplus s_k ) \oplus (s_1' \oplus s_2' \oplus \hdots \oplus s_k' ) \\
+                  &= \text{NIM}_s \oplus (s_1 \oplus s_1') \oplus \hdots \oplus (s_k \oplus s_k') \\
+                  &= \text{NIM}_s \oplus 0 \oplus \hdots \oplus (s_l \oplus s_l') \oplus \hdots \oplus 0 \\
+                  &= \text{NIM}_s \oplus s_l \oplus s_l'
+  \end{align*}
+  Assume $\text{NIM}_s \neq 0$. Let $d$ be the most significant non-zero bit of $\text{NIM}_s$. To move to a balanced position, We choose $l$ such that $s_l \neq 0$, and set $s_l' = \text{NIM}_s \oplus s_l$. Note that we chose $d$ in a way that maintains the constraint that $s_l' < s_l$. We then have
+  \begin{align*}
+    \text{NIM}_s'&= \text{NIM}_s \oplus s_l \oplus s_l' \\
+                 &= \text{NIM}_s \oplus s_l \oplus (\text{NIM}_s \oplus s_l) \\
+                 &= (\text{NIM}_s \oplus s_l) \oplus (\text{NIM}_s \oplus s_l) \\
+                 &= 0
+  \end{align*}
+  Assume $\text{NIM}_s = 0$. To move to an unbalanced position, choose any $l$. We then have $\text{NIM}_s' = s_l \oplus s_l'$, where $s_l \neq s_l'$.
+  \end{enumerate}
 \end{document}
