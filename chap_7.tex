@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 
 \usepackage{enumerate}
+\usepackage{enumitem}
 
 \usepackage{geometry}
 \geometry{a4paper}
@@ -102,6 +103,19 @@
       \item In stage 4, each node of $G$ is scanned to determine if it is marked. This takes $n$ steps.
     \end{itemize}
     Combining steps 2,3 and 4, we have a run time of $\frac{n^2(n-1)}{2} + n = \frac{n^3 + n^2 + 2n}{2} = O(n^3)$. This is clearly in P, and the proof is complete.
+  \item To show that $\text{TRIANGLE} \in \text{P}$, we need to show that $\text{TRIANGLE} \in \text{TIME}(n^k)$, where $k$ is some constant. We define Turing machine $M$, which operates as follows.\\\\
+    $M =$ ``On input $\langle G \rangle$:
+    \begin{enumerate}
+      \item[1.] For each edge $u, v$ in $G$, do
+        \begin{enumerate}
+        \item[2.] For each vertex $w$, do
+          \begin{enumerate}
+            \item[3.] If $v, w$ is an edge and $w, u$ is an edge, $accept$
+          \end{enumerate}
+        \end{enumerate}
+      \item[4.] If no edge, vertex combination has accepted, $reject$.
+    \end{enumerate}
+    $M$ runs in $O(|V||E|) = O(n^3)$. This is clearly in P, and the proof is complete.
 \end{enumerate}
 
 \end{document}
