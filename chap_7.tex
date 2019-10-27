@@ -118,22 +118,15 @@
       \item[4.] If no edge, vertex combination has accepted, $reject$.
     \end{enumerate}
     $M$ runs in $O(|V||E|) = O(n^3)$. This is clearly in P, and the proof is complete.''
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item
-    \item Assume an arbitrary upper configuration of size $k > 3$. Ignoring the lower configuration, there must then be at least two overlapping windows consisting of adjacent tape symbols $abc$, where $cell[i,j-1] = a$, $cell[i,j] = b$, $cell[i,j+1] = c$. We note that any cell adjacent to the tape head may be updated in the lower configuration. As both windows contain only tape symbols, each window cell is potentially adjacent to the head (with the exception of the case in which either window is at the beginning or end of the tape), meaning neither window can verify any corresponding cells in the lower configuration. As $cell[i,j]$ is not covered by any other windows, $cell[i+1,j]$ will never be verified, and the proof is complete.
-  \end{enumerate}
+  \item[26.] Assume an arbitrary upper configuration of size $k > 3$. Ignoring the lower configuration, there must then be at least two overlapping windows consisting of adjacent tape symbols $abc$, where $cell[i,j-1] = a$, $cell[i,j] = b$, $cell[i,j+1] = c$. We note that any cell adjacent to the tape head may be updated in the lower configuration. As both windows contain only tape symbols, each window cell is potentially adjacent to the head (with the exception of the case in which either window is at the beginning or end of the tape), meaning neither window can verify any corresponding cells in the lower configuration. As $cell[i,j]$ is not covered by any other windows, $cell[i+1,j]$ will never be verified, and the proof is complete.
+  \item[49.] To prove that $\text{DOUBLE-SAT}\langle \phi \rangle$ is NP-complete, we first show that $\text{DOUBLE-SAT} \in \text{NP}$.\\\\
+    Let $N$ be a non-deterministic Turing machine which decides $\text{DOUBLE-SAT}\langle \phi \rangle$. $N$ decides DOUBLE-SAT in the same way that $\text{SAT}$ is solved, with the small modification that $N$ guesses two assignments for each branch, accepting only if both assignments satisfy $\phi$.\\\\
+    To complete the proof, we give a reduction from $\text{SAT}$ to $\text{DOUBLE-SAT}$. Let $N'$ be a non-deterministic Turing machine which decides $\text{SAT}\langle \phi \rangle$.\\\\
+    $M$ = ``On input $\langle \phi \rangle$
+    \begin{enumerate}[label=\arabic*.]
+      \item Introduce dummy variable $y$, such that $\phi' = \phi \land (y \lor \bar{y})$.
+      \item If $\text{DOUBLE-SAT}\langle \phi' \rangle$ accepts, $accept$, else, $reject$.''
+    \end{enumerate}
+    We then have both $\text{DOUBLE-SAT} \in \text{NP}$ and $\text{SAT} \leq_p \text{DOUBLE-SAT}$, and the proof is complete.
+\end{enumerate}
 \end{document}
