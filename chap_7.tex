@@ -118,6 +118,22 @@
       \item[4.] If no edge, vertex combination has accepted, $reject$.
     \end{enumerate}
     $M$ runs in $O(|V||E|) = O(n^3)$. This is clearly in P, and the proof is complete.''
-\end{enumerate}
-
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item Assume an arbitrary upper configuration of size $k > 3$. Ignoring the lower configuration, there must then be at least two overlapping windows consisting of adjacent tape symbols $abc$, where $cell[i,j-1] = a$, $cell[i,j] = b$, $cell[i,j+1] = c$. We note that any cell adjacent to the tape head may be updated in the lower configuration. As both windows contain only tape symbols, each window cell is potentially adjacent to the head (with the exception of the case in which either window is at the beginning or end of the tape), meaning neither window can verify any corresponding cells in the lower configuration. As $cell[i,j]$ is not covered by any other windows, $cell[i+1,j]$ will never be verified, and the proof is complete.
+  \end{enumerate}
 \end{document}
