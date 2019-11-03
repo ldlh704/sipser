@@ -79,5 +79,27 @@
                  &= 0
   \end{align*}
   Assume $\text{NIM}_s = 0$. To move to an unbalanced position, choose any $l$. We then have $\text{NIM}_s' = s_l \oplus s_l'$, where $s_l \neq s_l'$.
+\item Let $a_i, b_i, c_i$ be the $i$-th digits of $a,b,c$ and $r_i$ the carry generated for $c_i$. We then have
+  \begin{align*}
+    r_i &= \Big(c_{i-1} + \sum_{j+k=i+1} a_jb_k \Big) \bmod 2 \\
+    c_i &= \Big(\sum_{m=0}^{i-2} \sum_{j+k=i-m} a_jb_k \Big) / D
+  \end{align*}
+  We define machine $M$, which decides $\text{MULT}\langle a\#b\#c \rangle$. \\\\
+  $M =$ ``On input $a\#b\#c$:
+  \begin{enumerate}
+    \item[1.] Initialise $t = 0$.
+    \item[2.] Let $a = a_1a_2 \hdots a_p$, $b = b_1b_2 \hdots b_q$, $c = c_1c_2 \hdots c_{p+q-1}$.
+    \item[3.] For $k = 0$ to $k = p + q - 1$
+    \begin{enumerate}
+      \item[4.] For $j = max(1, k - p + 1)$ to $min(k, q)$.
+      \begin{enumerate}
+        \item[5.] Let $i = k - j + 1$.
+        \item[6.] Update $t = t + (a_ib_j)$.
+      \end{enumerate}
+      \item[7.] If $c_k = t \bmod 2$, continue, else $reject$.
+      \item[8.] Update $t = \lfloor t / 2 \rfloor$.
+    \end{enumerate}
+    \item[9.] If $c_{p+q} = t \bmod 2$, $accept$, else $reject$.
   \end{enumerate}
+  As $M$ stores $i,j,k$ only as pointers to the input tape, they require only $O(\log n)$ of worktape space. We also note that the sum and carry can never exceed values larger than $O(\log n)$ bits, meaning that $t$ requires only $O(\log n)$ worktape space. We have then shown that $M$ can decide MULT using no more than logarithmic space, which completes the proof that $\text{MULT} \in L$.
 \end{document}
