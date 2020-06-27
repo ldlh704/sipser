@@ -33,5 +33,11 @@
       \item Construct DFA $B$ which recognises $R$ (see theorem 1.39).
       \item Run $EQ_{DFA}\langle A, B \rangle$ (see theorem 4.5). If $EQ_{DFA}\langle A, B \rangle$ accepts, $accept$, else $reject$.''
     \end{enumerate}
+    \item To show $ALL_{DFA}$ is decidable, we construct Turing machine $M$ which decides $ALL_{DFA}$: \\\\
+    $M =$ ``On input $\langle A \rangle$, where $A$ is a DFA
+    \begin{enumerate}[label=\arabic*.]
+      \item Construct DFA $A'$ by running algorithm $MINIMIZE$ on $A$ (see problem $7.25$).
+      \item If $A'$ consists of a single accepting state, $accept$, else $reject$.''
+    \end{enumerate}
 \end{enumerate}
 \end{document}
