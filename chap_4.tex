@@ -39,5 +39,11 @@
       \item Construct DFA $A'$ by running algorithm $MINIMIZE$ on $A$ (see problem $7.25$).
       \item If $A'$ consists of a single accepting state, $accept$, else $reject$.''
     \end{enumerate}
-\end{enumerate}
+    \item To show $A\epsilon_{CFG}$ is decidable, we construct Turing machine $M$ which decides $A\epsilon_{CFG}$: \\\\
+    $M =$ ``On input $\langle A \rangle$, where $A$ is a CFG
+    \begin{enumerate}[label=\arabic*.]
+      \item Construct CFG $A'$ by converting $A$ into Chomsky normal form (use algorithm described by theorem 2.9).
+      \item If $A'$ consists of a single rule with terminal $\epsilon$, $accept$, else $reject$.''
+    \end{enumerate}
+  \end{enumerate}
 \end{document}
